@@ -17,12 +17,6 @@ RUN pecl install event && \
 
 RUN docker-php-ext-install pdo_pgsql pgsql
 
-RUN apk add --no-cache \
-    libuuid \
-    e2fsprogs-dev && \
-    pecl install uuid && \
-    docker-php-ext-enable uuid
-
 RUN curl -sS https://getcomposer.org/installer | php && \
 	mv ./composer.phar /usr/bin/composer && \
 	composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
